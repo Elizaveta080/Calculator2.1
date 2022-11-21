@@ -40,7 +40,7 @@ public class main {
                     result = (calcArab(Integer.parseInt(exp[0]), Integer.parseInt(exp[2]), exp[1])) + "";
                 }
                 else throw new ScanExc("Некорректное выражение"); }
-                else if ((a >= 5) && !isInt(exp[5])) {throw new ScanExc("Некорректное выражение");} //!!!
+                else if ((a >= 5) && !isInt(exp[5])) {throw new ScanExc("Некорректное выражение");} 
                 if (exp.length == 5) {
                 if (isInt(exp[0]) && isInt(exp[1]) && isInt(exp[4]) && isInt(exp[3])) {
                     result = (calcArab(Integer.parseInt(exp[0] + exp[1]), Integer.parseInt(exp[3] + exp[4]), exp[2])) + "";
