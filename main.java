@@ -29,6 +29,7 @@ public class main {
         if (k != 1) {
             throw new ScanExc("Некорректное выражение");
         }
+        int a = exp.length;
         int x = 0;
         int y = 0;
 
@@ -38,8 +39,9 @@ public class main {
                 if (isInt(exp[0]) && isInt(exp[2])) {
                     result = (calcArab(Integer.parseInt(exp[0]), Integer.parseInt(exp[2]), exp[1])) + "";
                 }
-                else throw new ScanExc("Некорректное выражение");
-            } else if (exp.length == 5) {
+                else throw new ScanExc("Некорректное выражение"); }
+                else if ((a >= 5) && !isInt(exp[5])) {throw new ScanExc("Некорректное выражение");} //!!!
+                if (exp.length == 5) {
                 if (isInt(exp[0]) && isInt(exp[1]) && isInt(exp[4]) && isInt(exp[3])) {
                     result = (calcArab(Integer.parseInt(exp[0] + exp[1]), Integer.parseInt(exp[3] + exp[4]), exp[2])) + "";
                 }
@@ -54,7 +56,7 @@ public class main {
 
             }
         }
-
+        //int a = exp.length;
         else if ((exp.length == 4) && (!isInt(exp[0])) && (isInt(exp[3])))
         {
             throw new ScanExc("Некорректное выражение");
@@ -63,6 +65,15 @@ public class main {
         {
             throw new ScanExc("Некорректное выражение");
         }
+        else if ((exp.length == 6) && (!isInt(exp[0])) && (isInt(exp[5])))
+        {
+            throw new ScanExc("Некорректное выражение");
+        }
+        else if ((a > 6) && (!isInt(exp[0])) && (isInt(exp[5])))
+        {
+            throw new ScanExc("Некорректное выражение");
+        }
+
 
 
 
@@ -104,6 +115,34 @@ public class main {
             if (operationIndex == 2 && exp.length == 6) { //II+III
                 x = src.Converter.romanToArabic(exp[0] + exp[1]);
                 y = src.Converter.romanToArabic(exp[3] + exp[4] + exp[5]);
+            }
+            if (operationIndex == 4 && exp.length == 6) { //VIII+I
+                x = src.Converter.romanToArabic(exp[0] + exp[1] + exp[2] + exp[3]);
+                y = src.Converter.romanToArabic( exp[5]);
+            }
+            if (operationIndex == 4 && exp.length == 7) { //VIII+II
+                x = src.Converter.romanToArabic(exp[0] + exp[1] + exp[2] + exp[3]);
+                y = src.Converter.romanToArabic( exp[5] + exp[6]);
+            }
+            if (operationIndex == 4 && exp.length == 8) { //VIII+III
+                x = src.Converter.romanToArabic(exp[0] + exp[1] + exp[2] + exp[3]);
+                y = src.Converter.romanToArabic( exp[5] + exp[6] + exp[7]);
+            }
+            if (operationIndex == 4 && exp.length == 9) { //VIII+VIII
+                x = src.Converter.romanToArabic(exp[0] + exp[1] + exp[2] + exp[3]);
+                y = src.Converter.romanToArabic( exp[5] + exp[6] + exp[7] + exp[8]);
+            }
+            if (operationIndex == 1 && exp.length == 6) { //I+VIII
+                x = src.Converter.romanToArabic(exp[0]);
+                y = src.Converter.romanToArabic(exp[2] + exp[3] + exp[4] + exp[5]);
+            }
+            if (operationIndex == 2 && exp.length == 7) { //II+VIII
+                x = src.Converter.romanToArabic(exp[0] + exp[1]);
+                y = src.Converter.romanToArabic(exp[3] + exp[4] + exp[5] + exp[6]);
+            }
+            if (operationIndex == 3 && exp.length == 8) { //III+VIII
+                x = src.Converter.romanToArabic(exp[0] + exp[1] + exp[2]);
+                y = src.Converter.romanToArabic(exp[4] + exp[5] + exp[6] + exp[7]);
             }
 
 

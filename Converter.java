@@ -4,7 +4,7 @@ public class Converter {
 
 
     public static String arabicToRoman(final int number) {
-        if (number < 0 || 11 < number) {
+        if (number < 0 || 100 < number) {
             throw new IllegalArgumentException();
         }
         String[] nums = { "I", "V", "X", "L", "C", "D", "M" };
